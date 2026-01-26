@@ -1,0 +1,35 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.modalResumo {
+  @include modaisOverlay;
+  inset: 0%;
+  z-index: 900;
+}
+.resumo {
+  position: fixed;
+  top: 50%;
+  width: 90%;
+  max-width: 400px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $bgGray;
+  border-radius: $border_default;
+  z-index: 999;
+  padding: 2em;
+  @include flex;
+  gap: 2em;
+  @include alignItens;
+  color: white;
+  overflow: hidden;
+  .fecharResumo {
+    @include buttonOrangeMin;
+  }
+  .containerResumo {
+    height: 40vh;
+    overflow-y: scroll;
+    border-radius: $border_default;
+    background-color: $bgBackground;
+    box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.123);
+  }
+}

@@ -1,0 +1,41 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.header {
+  border-bottom: 1px solid $bgTransparent;
+  backdrop-filter: blur(6px);
+  background-color: #232323c1;
+  @include fixed;
+  height: 80px;
+  z-index: 4;
+  nav {
+    @include flexB;
+    padding: 1em;
+    height: 100%;
+    align-items: center;
+    ul img {
+      width: 101px;
+      height: 38px;
+    }
+  }
+  .button {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+}
+@media (min-width: 768px) {
+  .header {
+    max-height: 100px;
+    nav {
+      padding: 33px 41px 29px 41px;
+    }
+    .button {
+      img {
+        max-width: none !important;
+      }
+    }
+  }
+}

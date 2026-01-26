@@ -1,0 +1,139 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.modal {
+  @include modaisOverlay;
+  inset: 0%;
+  z-index: 90;
+}
+.modalCart {
+  @include fixed;
+  max-width: 600px;
+  height: 100%;
+  background-color: $bgBackground;
+  border: 1px solid $bgTransparent;
+  top: 0%;
+  right: 0%;
+  z-index: 99;
+  color: $bgWhite;
+  @include flex;
+  gap: 5em;
+  padding: 2em 1em;
+
+  h2 {
+    font-weight: 500;
+  }
+  .compras {
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    @include alignItens;
+    h2 {
+      flex: 1;
+      text-align: center;
+    }
+    button {
+      border-radius: 50%;
+      background-color: #373737;
+      border: 1px solid rgba(255, 255, 255, 0.082);
+      padding: 0.3em;
+      display: flex;
+      @include alignItens;
+      .icon {
+        font-size: 2.6em;
+        color: $bgOrange;
+      }
+    }
+  }
+  .finish {
+    padding: 1em 0em;
+    .containerTotal {
+      @include flexB;
+      text-transform: uppercase;
+      .finishContainer {
+        display: flex;
+        gap: 0.6em;
+        max-width: 60%;
+        overflow-x: scroll;
+        div {
+          display: flex;
+          gap: 0.3em;
+        }
+      }
+    }
+    .butFish {
+      max-width: 620px;
+      height: 43px;
+      margin-top: 3em;
+      @include buttonOrangeMin;
+    }
+  }
+  .cartControler {
+    @include flexB;
+    align-items: center;
+    button {
+      background-color: transparent;
+      font-size: 18px;
+    }
+    .controler {
+      background-color: $bgBackground;
+      border-radius: $border_default;
+      width: 110px;
+      height: 40px;
+      padding: 0.7em;
+      @include flexB;
+      align-items: center;
+      gap: 1.1em 1.2em;
+      font-weight: 600;
+      font-size: 0.9em;
+    }
+    .removeItem {
+      border-radius: 50%;
+      padding: 0.4em 0.5em;
+      display: flex;
+      align-items: center;
+      background-color: $bgOrange;
+      img {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+  .listCardsItems {
+    width: 100%;
+    height: 55vh;
+    overflow-y: auto;
+  }
+}
+@media (min-width: 768px) {
+  .modalCart {
+    .cartControler {
+      .controler {
+        width: 128px;
+        height: 40px;
+      }
+    }
+    .finish {
+      padding: 1em 0em;
+      .containerTotal {
+        @include flexB;
+        text-transform: uppercase;
+        .finishContainer {
+          display: flex;
+          gap: 0.6em;
+          max-width: 200px;
+          overflow-x: scroll;
+
+          div {
+            display: flex;
+            align-items: center;
+            gap: 0.3em;
+          }
+        }
+      }
+      .butFish {
+        height: 60px;
+      }
+    }
+  }
+}

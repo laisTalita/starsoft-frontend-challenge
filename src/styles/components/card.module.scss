@@ -1,0 +1,282 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.cart {
+  overflow: hidden;
+  background-color: $bgDarkBlue;
+  h1 {
+    color: $bgWhite;
+    font-size: 1.2em;
+    font-weight: 500;
+  }
+  p {
+    color: $bgLightGray;
+    font-size: 0.8em;
+  }
+  .containerPrice {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    font-weight: 600;
+    font-size: 0.9em;
+    color: #f0f0f0;
+    text-transform: uppercase;
+    margin-bottom: 17px;
+  }
+  .imageWrapper {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    img {
+      width: 100%;
+      border-radius: $border_default;
+    }
+  }
+  section {
+    .description {
+      overflow: hidden;
+    }
+  }
+}
+.default {
+  @include cadsStyle;
+  height: auto;
+  max-width: 280px;
+  max-height: 555px;
+  padding: 26px 24.5px;
+  flex-direction: column;
+  gap: 1.5em;
+  border: 1px solid rgba(255, 255, 255, 0.043);
+  .imageWrapper {
+    max-width: 296px;
+    max-height: 258px;
+    img {
+      border-radius: 4px;
+    }
+  }
+  section {
+    @include flex;
+    gap: 1.2em;
+    position: relative;
+    .description {
+      h1 {
+        margin-bottom: 6px;
+      }
+      p {
+        @include textSectionP;
+      }
+    }
+  }
+  .componentChil {
+    button {
+      @include buttonOrangeMin;
+      max-width: 296px;
+      height: 40px;
+    }
+  }
+}
+.card {
+  background-color: $bgCard;
+  @include cadsStyle;
+  padding: 0.7em;
+  gap: 0.8em;
+  margin: 1em 0em;
+  max-width: 600px;
+  border: 1px solid rgba(255, 255, 255, 0.043);
+  h1 {
+    font-size: 0.9em;
+  }
+  .imageWrapper {
+    width: 40%;
+    max-width: 140px;
+  }
+  section {
+    flex: 1;
+    @include flex;
+    justify-content: space-around;
+    gap: 0.5em;
+    .description {
+      h1 {
+        margin-bottom: 2px;
+        text-transform: uppercase;
+      }
+      p {
+        @include textSectionP;
+      }
+    }
+    .containerPrice {
+      margin-bottom: 0.6em;
+    }
+  }
+}
+.modal {
+  @include cadsStyle;
+  width: 95%;
+  max-width: 480px;
+  position: relative;
+  margin: auto;
+  flex-direction: column;
+  padding: 1em;
+
+  .imageWrapper {
+    width: 100%;
+  }
+  section {
+    width: 100%;
+    @include flex;
+    gap: 1em;
+    padding: 2em 0em 0em;
+    .containerChildren {
+      @include flex;
+      justify-content: space-between;
+    }
+    .description {
+      flex: 1;
+    }
+    .modalContainer {
+      position: absolute;
+      top: 1em;
+      left: 1em;
+      padding: 1em;
+      background-color: rgba(73, 72, 72, 0.604);
+      backdrop-filter: blur(10px);
+      h1 {
+        color: black;
+        font-weight: 600;
+      }
+      p {
+        color: $bgWhite;
+        font-weight: 600;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.482);
+      }
+    }
+    .desc {
+      width: 100%;
+      height: 150px;
+      overflow-y: scroll;
+      font-size: 0.9em;
+      text-align: center;
+    }
+  }
+  .containerPrice {
+    justify-content: center;
+  }
+  hr {
+    color: $bgTransparent;
+  }
+  .componentChil {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1em;
+    button {
+      background-color: transparent;
+      font-size: 30px;
+    }
+  }
+}
+.resumo {
+  @include cadsStyle;
+  margin: 1em;
+  padding: 0.4em;
+  gap: 1em;
+  align-items: center;
+  border: 1px solid $bgTransparent;
+  justify-content: space-between;
+  .imageWrapper {
+    width: 27%;
+    max-width: 100px;
+  }
+  section {
+    @include flex;
+    justify-content: center;
+    gap: 0.6em;
+    flex: 1;
+    .description {
+      h1 {
+        margin-bottom: 2px;
+        font-size: 0.9em;
+      }
+      p {
+        @include textSectionP;
+      }
+    }
+    .containerChildren {
+      display: flex;
+      justify-content: space-between;
+      .containerPrice {
+        margin-bottom: 0%;
+      }
+    }
+  }
+}
+@media (min-width: 567px) {
+  .card {
+    padding: 1em 1.4em;
+    gap: 1.3em;
+  }
+}
+@media (min-width: 768px) {
+  .default {
+    gap: 2.4em;
+    section {
+      gap: 1.4em;
+    }
+    .description h1 {
+      margin-bottom: 10px;
+    }
+    .containerPrice {
+      font-size: 1.1em;
+    }
+  }
+  .cart {
+    h1 {
+      font-size: 18px;
+    }
+    p {
+      font-size: 1em;
+    }
+  }
+  .card {
+    section {
+      .containerPrice {
+        font-size: 1.1em;
+      }
+    }
+  }
+  .modal {
+    flex-direction: row;
+    width: 100%;
+    max-width: 800px;
+    justify-content: space-between;
+    .imageWrapper {
+      width: 50%;
+    }
+    section {
+      padding: 1em;
+      width: 48%;
+      justify-content: center;
+      @include flex;
+      .desc {
+        width: 90%;
+        height: auto;
+        max-height: 30vh;
+        margin: none;
+        padding: 1em 0em;
+        font-size: 1em;
+        text-align: start;
+      }
+    }
+  }
+}
+@media (min-width: 1440px) {
+  .default {
+    max-width: 345px;
+    .description h1 {
+      margin-bottom: 12px;
+    }
+    .componentChil {
+      button {
+        height: 50px;
+      }
+    }
+  }
+}

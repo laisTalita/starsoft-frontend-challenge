@@ -1,0 +1,52 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+body {
+  background-color: $bgBackground;
+  font-weight: 400;
+  font-size: 16px;
+}
+button {
+  color: $bgWhite;
+  font-weight: 500;
+  font-size: 0.8em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.268);
+  border: none;
+  border-radius: $border_default;
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+main {
+  width: 90%;
+  margin: auto;
+  margin-top: 9em;
+  margin-bottom: 4em;
+}
+.footer {
+  padding: 1em;
+  color: #ffffff70;
+  font-weight: 400;
+  font-size: 0.7em;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+li {
+  list-style-type: none;
+}
+h2 {
+  font-size: 1.1em;
+}
+.goBack {
+  width: 90%;
+  max-width: 400px;
+  align-items: center;
+  margin: 3em auto;
+  margin-bottom: 2em;
+  button {
+    @include buttonOrangeMin;
+  }
+}
