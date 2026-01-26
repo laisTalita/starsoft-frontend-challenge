@@ -38,14 +38,18 @@
   }
 }
 .default {
-  @include cadsStyle;
+  @include cardStyle;
   height: auto;
   max-width: 280px;
   max-height: 555px;
   padding: 26px 24.5px;
   flex-direction: column;
   gap: 1.5em;
-  border: 1px solid rgba(255, 255, 255, 0.043);
+  border: 1px solid rgba(255, 255, 255, 0.035);
+  /* &:hover{
+    transform:scale(1.006);
+    border: 1px solid rgba(255, 255, 255, 0.088);
+  }*/
   .imageWrapper {
     max-width: 296px;
     max-height: 258px;
@@ -66,7 +70,7 @@
       }
     }
   }
-  .componentChil {
+  .componentChildren {
     button {
       @include buttonOrangeMin;
       max-width: 296px;
@@ -76,7 +80,7 @@
 }
 .card {
   background-color: $bgCard;
-  @include cadsStyle;
+  @include cardStyle;
   padding: 0.7em;
   gap: 0.8em;
   margin: 1em 0em;
@@ -109,7 +113,7 @@
   }
 }
 .modal {
-  @include cadsStyle;
+  @include cardStyle;
   width: 95%;
   max-width: 480px;
   position: relative;
@@ -163,18 +167,22 @@
   hr {
     color: $bgTransparent;
   }
-  .componentChil {
+  .componentChildren {
     display: flex;
     justify-content: space-evenly;
     margin-top: 1em;
     button {
       background-color: transparent;
       font-size: 30px;
+      &:hover {
+        transition: 0.3s ease-in-out;
+        color: $bgOrange;
+      }
     }
   }
 }
-.resumo {
-  @include cadsStyle;
+.summary {
+  @include cardStyle;
   margin: 1em;
   padding: 0.4em;
   gap: 1em;
@@ -273,7 +281,7 @@
     .description h1 {
       margin-bottom: 12px;
     }
-    .componentChil {
+    .componentChildren {
       button {
         height: 50px;
       }

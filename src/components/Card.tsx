@@ -26,7 +26,7 @@ function Card({ item, children, variant = 'default' }: CardProps) {
             </div>
           )}
           {variant === 'card' && <h1>Item {id}</h1>}
-          {variant === 'resumo' && <h1>{name}</h1>}
+          {variant === 'summary' && <h1>{name}</h1>}
           <p className={styles.desc} aria-label="descrição do produto">
             {description}
           </p>
@@ -42,11 +42,11 @@ function Card({ item, children, variant = 'default' }: CardProps) {
             />
             <span>{Number(price).toFixed(2)} eth</span>
           </div>
-          {variant === 'resumo' && <p>qtd - {qtd}</p>}
+          {variant === 'summary' && <p>qtd - {qtd}</p>}
 
           {variant === 'modal' && <hr />}
 
-          <div className={styles.componentChil}>{children}</div>
+          <div className={styles.componentChildren}>{children}</div>
         </div>
       </section>
     </article>

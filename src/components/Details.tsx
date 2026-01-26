@@ -7,6 +7,7 @@ import Card from '@/components/Card';
 import Button from '@/components/Button';
 import { List } from '@/types';
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from 'react-icons/io';
+import { motion } from 'motion/react';
 
 function Details({ id }: { id: string }) {
   const newId = Number(id);
@@ -24,8 +25,14 @@ function Details({ id }: { id: string }) {
   const index = data.products.findIndex((i: List) => i.id === newId);
   const isMax = index === data.products.length - 1;
   const isMin = index === 0;
+
   return (
-    <section>
+    <motion.div
+      initial={{ opacity: 0.5, y: 5 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 10 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+    >
       <Card item={nfst} variant="modal">
         {!isMin && (
           <Button
@@ -48,7 +55,7 @@ function Details({ id }: { id: string }) {
       <div className="goBack">
         <Button onClick={() => router.push(`/`)}>Voltar ao Loob</Button>
       </div>
-    </section>
+    </motion.div>
   );
 }
 export default Details;

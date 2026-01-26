@@ -1,13 +1,14 @@
 @use '../variables' as *;
 @use '../mixins' as *;
 
-.modalResumo {
-  @include modaisOverlay;
+.summaryModal {
+  @include modalsOverlay;
   inset: 0%;
   z-index: 900;
 }
-.resumo {
+.summary {
   position: fixed;
+  border: 1px solid rgba(255, 255, 255, 0.146);
   top: 50%;
   width: 90%;
   max-width: 400px;
@@ -22,14 +23,24 @@
   @include alignItens;
   color: white;
   overflow: hidden;
-  .fecharResumo {
+  .closeSummary {
     @include buttonOrangeMin;
   }
-  .containerResumo {
+  .containerSummary {
     height: 40vh;
     overflow-y: scroll;
     border-radius: $border_default;
     background-color: $bgBackground;
     box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.123);
+  }
+}
+@media (min-width: 768px) {
+  .summary {
+    max-width: 500px;
+  }
+}
+@media (min-width: 1600px) {
+  .summary {
+    max-width: 40%;
   }
 }

@@ -7,9 +7,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/store/store';
 import { addToCart } from '@/store/cartSlice';
 import { useState } from 'react';
+import { motion } from 'motion/react';
 import styles from '@/styles/components/homeCards.module.scss';
 import { FaEye } from 'react-icons/fa';
-
 import Button from '@/components/Button';
 import Card from '@/components/Card';
 import { List } from '@/types';
@@ -17,6 +17,9 @@ import { List } from '@/types';
 function HomeCards() {
   const dispatch = useDispatch();
   const [rest, setRest] = useState(0);
+  const [step, setStep] = useState(1);
+
+  const progress = step / 4;
 
   const { data, isLoading, error } = useQuery({
     queryKey: ['nfst'],
@@ -61,9 +64,15 @@ function HomeCards() {
         })}
       </div>
       <div className={styles.containerButton}>
+        <div className={styles.containerBar}>
+          <motion.div style={{ scaleX: progress }}></motion.div>
+        </div>
         <Button
           aria-label="Carregar itens"
-          onClick={() => setRest(isList ? 0 : rest + 8)}
+          onClick={() => {
+            setRest(isList ? 0 : rest + 8);
+            setStep((prev) => (prev % 4) + 1);
+          }}
         >
           {isList ? 'Você já viu tudo' : 'Carregar mais'}
         </Button>

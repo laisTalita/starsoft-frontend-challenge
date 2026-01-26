@@ -8,41 +8,47 @@ import Card from './Card';
 import Button from './Button';
 import styles from '@/styles/components/moldal.module.scss';
 import Portal from './Portal';
+import { motion } from 'motion/react';
 
 type MoldalProps = SetCartType & {
-  setResumo: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsSummary: React.Dispatch<React.SetStateAction<boolean>>;
   total: number;
 };
 
-function Moldal({ setResumo, setCart, total }: MoldalProps) {
+function Moldal({ setIsSummary, setCart, total }: MoldalProps) {
   const dispatch = useDispatch();
   const cardItems = useSelector((state: RootState) => state.cart.items);
 
   return (
     <Portal>
-      <div className={styles.modalResumo}></div>
-      <section className={styles.resumo}>
-        <h3>Compra Finalizada!</h3>
-
-        <section className={styles.containerResumo}>
-          {cardItems.length > 0 &&
-            cardItems.map((items: List) => (
-              <Card key={items.id} item={items} variant="resumo"></Card>
-            ))}
+      <motion.div
+        initial={{ opacity: 0.7 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.1, ease: 'easeOut' }}
+      >
+        <div className={styles.summaryModal}></div>
+        <section className={styles.summary}>
+          <h3>Compra Finalizada!</h3>
+          <section className={styles.containerSummary}>
+            {cardItems.length > 0 &&
+              cardItems.map((items: List) => (
+                <Card key={items.id} item={items} variant="summary"></Card>
+              ))}
+          </section>
+          <h4>total: {total}</h4>
+          <Button
+            aria-label="Fechar Resumo"
+            className={styles.closeSummary}
+            onClick={() => {
+              dispatch(removeAll());
+              setIsSummary(false);
+              setCart(false);
+            }}
+          >
+            Fechar Resumo
+          </Button>
         </section>
-        <h4>total: {total}</h4>
-        <Button
-          aria-label="Fechar Resumo"
-          className={styles.fecharResumo}
-          onClick={() => {
-            dispatch(removeAll());
-            setResumo(false);
-            setCart(false);
-          }}
-        >
-          Fechar Resumo
-        </Button>
-      </section>
+      </motion.div>
     </Portal>
   );
 }

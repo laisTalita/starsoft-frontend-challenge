@@ -12,5 +12,5 @@ export type List = {
 export type CardProps = {
   item: List;
   children?: React.ReactNode;
-  variant?: 'default' | 'modal' | 'card' | 'resumo';
+  variant?: 'default' | 'modal' | 'card' | 'summary';
 };

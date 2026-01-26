@@ -13,12 +13,9 @@ button {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   cursor: pointer;
-  text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.268);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.296);
   border: none;
   border-radius: $border_default;
-  &:hover {
-    transform: scale(1.02);
-  }
 }
 main {
   width: 90%;
@@ -27,11 +24,12 @@ main {
   margin-bottom: 4em;
 }
 .footer {
-  padding: 1em;
+  padding: 1em 0em;
   color: #ffffff70;
   font-weight: 400;
-  font-size: 0.7em;
-  letter-spacing: 0.1em;
+  font-size: 0.8em;
+  letter-spacing: 2px;
+  line-height: 16px;
   text-align: center;
 }
 li {
