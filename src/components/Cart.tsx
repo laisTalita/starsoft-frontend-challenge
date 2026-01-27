@@ -37,7 +37,7 @@ function Cart({ setCart }: SetCartType) {
         ></motion.div>
         <section className={styles.modalCart}>
           <div className={styles.shoppingCart}>
-            <Button onClick={() => setCart(false)}>
+            <Button aria-label="Fechar carrinho" onClick={() => setCart(false)}>
               <IoIosArrowRoundBack className={styles.icon} />
             </Button>
             <h2>Mochila de compras</h2>

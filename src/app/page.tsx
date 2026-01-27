@@ -1,8 +1,16 @@
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Home',
+  description: 'Confira nossos produtos',
+};
+
 import {
   QueryClient,
   dehydrate,
   HydrationBoundary,
 } from '@tanstack/react-query';
+
 import { fetchNfts } from '@/services/api';
 import HomeCards from '../components/HomeCards';
 

@@ -3,11 +3,13 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchNfts } from '@/services/api';
 import { useRouter } from 'next/navigation';
+
 import Card from '@/components/Card';
 import Button from '@/components/Button';
 import { List } from '@/types';
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from 'react-icons/io';
 import { motion } from 'motion/react';
+import Link from 'next/link';
 
 function Details({ id }: { id: string }) {
   const newId = Number(id);
@@ -28,32 +30,34 @@ function Details({ id }: { id: string }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0.5, y: 5 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0.2 }}
+      animate={{ opacity: 1 }}
       exit={{ opacity: 0, y: 10 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      transition={{ duration: 0.7, ease: 'easeIn' }}
     >
       <Card item={nfst} variant="modal">
-        {!isMin && (
-          <Button
-            aria-label="Voltar card"
-            onClick={() => !isMin && router.push(`/client/${newId - 1}`)}
-          >
-            <IoIosArrowRoundBack />
-          </Button>
-        )}
-        {!isMax && (
-          <Button
-            aria-label="Avançar na lista de produtos"
-            onClick={() => !isMax && router.push(`/client/${newId + 1}`)}
-          >
-            {''}
-            <IoIosArrowRoundForward />
-          </Button>
-        )}
+        <nav aria-label="navagação entre produtos">
+          {!isMin && (
+            <Button
+              aria-label="Voltar card"
+              onClick={() => !isMin && router.push(`/client/${newId - 1}`)}
+            >
+              <IoIosArrowRoundBack />
+            </Button>
+          )}
+          {!isMax && (
+            <Button
+              aria-label="Avançar na lista de produtos"
+              onClick={() => !isMax && router.push(`/client/${newId + 1}`)}
+            >
+              {''}
+              <IoIosArrowRoundForward />
+            </Button>
+          )}
+        </nav>
       </Card>
       <div className="goBack">
-        <Button onClick={() => router.push(`/`)}>Voltar ao Loob</Button>
+        <Link href="/">Voltar ao Loob</Link>
       </div>
     </motion.div>
   );

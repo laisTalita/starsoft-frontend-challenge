@@ -41,10 +41,14 @@ h2 {
 .goBack {
   width: 90%;
   max-width: 400px;
-  align-items: center;
   margin: 3em auto;
-  margin-bottom: 2em;
-  button {
+  display: flex;
+  a {
     @include buttonOrangeMin;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+    border-radius: $border_default;
+    color: $bgWhite;
   }
 }

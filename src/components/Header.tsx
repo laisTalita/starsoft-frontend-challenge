@@ -16,7 +16,7 @@ function Header() {
 
   return (
     <header className={styles.header}>
-      <nav>
+      <nav aria-label="Navegação principal">
         <ul>
           <li>
             <Link href={'/'} aria-label="Voltar para a Home">

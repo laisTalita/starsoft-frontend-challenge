@@ -4,7 +4,7 @@
 .cart {
   overflow: hidden;
   background-color: $bgDarkBlue;
-  h1 {
+  h2 {
     color: $bgWhite;
     font-size: 1.2em;
     font-weight: 500;
@@ -62,7 +62,7 @@
     gap: 1.2em;
     position: relative;
     .description {
-      h1 {
+      h2 {
         margin-bottom: 6px;
       }
       p {
@@ -86,7 +86,7 @@
   margin: 1em 0em;
   max-width: 600px;
   border: 1px solid rgba(255, 255, 255, 0.043);
-  h1 {
+  h2 {
     font-size: 0.9em;
   }
   .imageWrapper {
@@ -99,7 +99,7 @@
     justify-content: space-around;
     gap: 0.5em;
     .description {
-      h1 {
+      h2 {
         margin-bottom: 2px;
         text-transform: uppercase;
       }
@@ -143,7 +143,7 @@
       padding: 1em;
       background-color: rgba(73, 72, 72, 0.604);
       backdrop-filter: blur(10px);
-      h1 {
+      h2 {
         color: black;
         font-weight: 600;
       }
@@ -168,9 +168,13 @@
     color: $bgTransparent;
   }
   .componentChildren {
-    display: flex;
-    justify-content: space-evenly;
     margin-top: 1em;
+    nav {
+      width: 100%;
+
+      display: flex;
+      justify-content: space-evenly;
+    }
     button {
       background-color: transparent;
       font-size: 30px;
@@ -199,7 +203,7 @@
     gap: 0.6em;
     flex: 1;
     .description {
-      h1 {
+      h2 {
         margin-bottom: 2px;
         font-size: 0.9em;
       }
@@ -228,7 +232,7 @@
     section {
       gap: 1.4em;
     }
-    .description h1 {
+    .description h2 {
       margin-bottom: 10px;
     }
     .containerPrice {
@@ -236,7 +240,7 @@
     }
   }
   .cart {
-    h1 {
+    h2 {
       font-size: 18px;
     }
     p {
@@ -278,7 +282,7 @@
 @media (min-width: 1440px) {
   .default {
     max-width: 345px;
-    .description h1 {
+    .description h2 {
       margin-bottom: 12px;
     }
     .componentChildren {

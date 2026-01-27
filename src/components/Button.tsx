@@ -9,8 +9,9 @@ type Car = {
 function Button({ onClick, children, className }: Car) {
   return (
     <motion.button
+      type="button"
       onClick={onClick}
-      className={className}
+      className={className ?? ''}
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.98 }}
       transition={{ duration: 0.09 }}
