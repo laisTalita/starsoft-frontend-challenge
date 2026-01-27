@@ -33,6 +33,7 @@ function Details({ id }: { id: string }) {
       initial={{ opacity: 0.2 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, y: 10 }}
+      className="containerDetails"
       transition={{ duration: 0.7, ease: 'easeIn' }}
     >
       <Card item={nfst} variant="modal">

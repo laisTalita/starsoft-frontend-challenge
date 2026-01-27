@@ -117,7 +117,7 @@
   width: 95%;
   max-width: 480px;
   position: relative;
-  margin: auto;
+  margin: 0 auto;
   flex-direction: column;
   padding: 1em;
 
@@ -288,6 +288,16 @@
     .componentChildren {
       button {
         height: 50px;
+      }
+    }
+  }
+  .modal {
+    max-width: 60%;
+    section {
+      .componentChildren {
+        button {
+          font-size: 30px;
+        }
       }
     }
   }
