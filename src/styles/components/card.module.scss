@@ -46,10 +46,6 @@
   flex-direction: column;
   gap: 1.5em;
   border: 1px solid rgba(255, 255, 255, 0.035);
-  /* &:hover{
-    transform:scale(1.006);
-    border: 1px solid rgba(255, 255, 255, 0.088);
-  }*/
   .imageWrapper {
     max-width: 296px;
     max-height: 258px;
@@ -120,7 +116,7 @@
   margin: 0 auto;
   flex-direction: column;
   padding: 1em;
-
+  border: 1px solid rgba(255, 255, 255, 0.044);
   .imageWrapper {
     width: 100%;
   }

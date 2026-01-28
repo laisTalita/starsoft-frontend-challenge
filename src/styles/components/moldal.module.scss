@@ -5,12 +5,14 @@
   @include modalsOverlay;
   inset: 0%;
   z-index: 900;
+  backdrop-filter: blur(3px);
 }
 .summary {
   position: fixed;
   border: 1px solid rgba(255, 255, 255, 0.146);
   top: 50%;
-  width: 90%;
+  width: 98%;
+  min-width: 360px;
   max-width: 400px;
   left: 50%;
   transform: translate(-50%, -50%);
